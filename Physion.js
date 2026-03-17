@@ -53,7 +53,7 @@ const Estadoscore = {
 //--------------------------
  
 const blueprintReglas = [
- 
+
   // ============================
   // PRIORIDAD 1 — Casos críticos
   // ============================
@@ -61,21 +61,25 @@ const blueprintReglas = [
     id: "critico-total",
     prioridad: 1,
     condicion: (s, e, c) => s === 0 && e === 0 && c === 0,
-    recomendacion: "🚨 RECUPERACIÓN CRÍTICA: Tu cuerpo está en déficit total. Blueprint trata el sueño como el medicamento de longevidad número uno. Acción inmediata: esta noche cena al menos 2 horas antes de dormir, inicia una rutina de relajación de 30-60 minutos con lectura o respiración, y mantén tu habitación entre 15-19°C con oscuridad total."
+    recomendacion: "🚨 Tu cuerpo está pidiendo un descanso real. Dormiste mal, tu energía está agotada y encima cenaste tarde — esa combinación no le da ninguna oportunidad a tu cuerpo de recuperarse. Esta noche empieza diferente: cena al menos 2 horas antes de acostarte, apaga las pantallas media hora antes y procura que tu cuarto esté oscuro y fresco (entre 15 y 19°C). Pequeños cambios esta noche = mañana te levantas diferente.",
+    alternativa: "No puedes cenar temprano ni controlar el cuarto: al menos deja de comer 90 minutos antes de acostarte, apaga la pantalla del móvil y pon el cuarto lo más oscuro que puedas con lo que tengas — una camiseta sobre los ojos funciona."
   },
   {
     id: "critico-sueno-energia",
     prioridad: 1,
     condicion: (s, e, c) => s === 0 && e === 0,
-    recomendacion: "🚨 Sueño y energía en niveles críticos. Blueprint indica que este patrón rompe el ciclo completo de recuperación biológica. Acción inmediata: establece una hora fija de sueño cada noche, elimina la cafeína al menos 8-10 horas antes de dormir y exponte a luz natural dentro de los primeros 15-30 minutos de despertar."
+    recomendacion: "🚨 Sueño malo y sin energía — tu cuerpo no pudo recuperarse anoche. Cuando esto pasa seguido, el cuerpo nunca termina de recargar las pilas. Lo más importante ahora: pon una hora fija para acostarte (aunque sea hoy) y mañana sal a tomar luz natural en los primeros 30 minutos después de despertar. Ese simple hábito le dice a tu cuerpo a qué hora debe tener energía.",
+    alternativa: "No puedes fijar una hora de sueño ni salir a tomar sol: pon una alarma para acostarte, aunque no tengas sueño. Y mañana, abre una ventana o siéntate cerca del vidrio los primeros 10 minutos del día — la luz del interior también cuenta, solo es menos potente."
   },
   {
     id: "critico-sueno-cena",
     prioridad: 1,
     condicion: (s, e, c) => s === 0 && c === 0,
-    recomendacion: "🚨 La cena muy tardía está destruyendo tu sueño. Blueprint explica que la digestión activa el sistema nervioso simpático manteniendo tu frecuencia cardíaca elevada, lo que impide que el cuerpo entre en recuperación profunda. Adelanta tu última comida al menos 2 horas antes de dormir esta semana y mide el impacto."
+    recomendacion: "🚨 Cenar muy tarde te arruinó el sueño. Cuando comes justo antes de dormir, tu cuerpo sigue trabajando en la digestión en vez de descansar — y eso se nota. Esta semana intenta cenar al menos 2 horas antes de irte a la cama. No tiene que ser perfecto desde el primer día, solo un poco antes que ayer.",
+    alternativa: "No puedes cenar 2 horas antes: haz la cena más ligera que puedas. Una cena pesada y tardía es peor que una ligera y tardía — tu cuerpo tiene menos trabajo que hacer mientras intenta descansar."
+
   },
- 
+
   // ============================
   // PRIORIDAD 2 — Problemas moderados combinados
   // ============================
@@ -83,29 +87,31 @@ const blueprintReglas = [
     id: "sueno-cena-moderado",
     prioridad: 2,
     condicion: (s, e, c) => s === 1 && c === 0,
-    recomendacion: "⚠️ La cena tardía está limitando la profundidad de tu sueño. Blueprint recomienda comenzar adelantando la cena al menos 2 horas antes de dormir e ir progresando hasta 8 horas. Añade también una rutina de relajación de 30-60 minutos antes de dormir: lectura, baño caliente o ejercicios de respiración."
+    recomendacion: "⚠️ La cena tarde está afectando la calidad de tu sueño, aunque no te des cuenta. Tu cuerpo intenta dormir mientras todavía está digiriendo, y eso hace que el descanso sea más superficial. Prueba esta semana cenar 45 minutos antes que tu horario habitual. No tienes que cambiar todo de golpe — solo un poco, y ve viendo cómo te despiertas.",
+    alternativa: "No puedes cenar más temprano por tu horario: reduce el tamaño de la cena. Menos comida = menos digestión activa mientras duermes. Evita especialmente los carbohidratos simples y el azúcar en esa comida tardía."
   },
   {
     id: "energia-cena-moderado",
     prioridad: 2,
     condicion: (s, e, c) => e === 0 && c === 0,
-    recomendacion: "⚠️ Cenar muy tarde sobrecarga tu sistema digestivo durante la noche, lo que se traduce directamente en baja energía al día siguiente. Blueprint sugiere cerrar la ventana de alimentación al menos 2 horas antes de dormir. Mañana al despertar, exponte a luz natural en los primeros 15-30 minutos para reactivar tu ciclo circadiano."
+    recomendacion: "⚠️ Parte de tu cansancio de hoy viene de anoche. Cuando cenas tarde, tu cuerpo pasa la noche trabajando en la digestión en lugar de recuperarse, y eso se traduce en poca energía al despertar. Mañana intenta tomar luz natural en los primeros 30 minutos del día — eso ayuda a activar el cuerpo. Y esta noche, cierra la cocina al menos 2 horas antes de dormir.",
+    alternativa: "No puedes cambiar la hora de cenar ni salir al sol: toma un vaso grande de agua al despertar antes de cualquier otra cosa, y muévete aunque sean 5 minutos — unos estiramientos o una vuelta corta. No reemplaza la luz natural pero activa el metabolismo de forma similar."
   },
   {
     id: "sueno-energia-moderado",
     prioridad: 2,
     condicion: (s, e, c) => s === 1 && e === 1,
-    recomendacion: "🟡 Recuperación moderada en sueño y energía. Blueprint recomienda dos acciones concretas: establece una hora fija de sueño todos los días (incluyendo fines de semana) y exponte a luz natural dentro de los primeros 15-30 minutos de despertar para anclar tu ritmo circadiano y mejorar la energía matutina."
+    recomendacion: "🟡 Ni bien ni mal — estás en modo ahorro de energía. Tu cuerpo descansó a medias y tu energía lo refleja. La clave aquí es la consistencia: intenta acostarte y levantarte a la misma hora todos los días, incluso el fin de semana. Y mañana, saca 10-15 minutos para exponerte a luz natural al despertar. Esos dos hábitos solos marcan una diferencia real con el tiempo.",
+    alternativa: "No puedes mantener horarios fijos ni salir a tomar luz: pon al menos la alarma de levantarte a la misma hora todos los días, aunque la de acostarte varíe. La hora de despertar es la que ancla el ritmo circadiano, no tanto la de dormir."
   },
   {
     id: "sueno-moderado-cena-tardia",
     prioridad: 2,
     condicion: (s, e, c) => s === 1 && e === 2 && c === 1,
-    recomendacion: "🟡 Tu energía está bien pero la cena tardía está limitando la profundidad de tu sueño. Blueprint advierte que aunque tengas energía ahora, cenar tarde eleva tu frecuencia cardíaca nocturna e interrumpe los ciclos de recuperación. Adelanta la cena 45 minutos esta semana. Tu buena energía actual es la ventana para corregir este hábito antes de que te afecte."
+    recomendacion: "🟡 Tienes buena energía, pero tu sueño no está siendo todo lo reparador que podría. La cena un poco tarde puede estar jugando en contra sin que lo notes mucho. Aprovecha que hoy te sientes bien para hacer un ajuste pequeño: intenta cenar 30-45 minutos antes esta semana. Cuando la energía está bien es el mejor momento para mejorar el sueño — antes de que se convierta en un problema.",
+    alternativa: "No puedes adelantar la cena: intenta que tu última comida sea la más ligera del día. Si puedes, evita comer en el sofá o en la cama — comer en la mesa aunque sea tarde le da al cuerpo una señal más clara de que la comida terminó."
   },
 
-
- 
   // ============================
   // PRIORIDAD 3 — Un solo problema
   // ============================
@@ -113,27 +119,31 @@ const blueprintReglas = [
     id: "solo-sueno-malo",
     prioridad: 3,
     condicion: (s, e, c) => s === 0 && e >= 1 && c >= 1,
-    recomendacion: "😴 El sueño es tu único punto crítico hoy. Blueprint indica que el sueño es el pilar que sostiene todos los demás hábitos. Esta noche: mantén tu habitación entre 15-19°C, oscuridad total, sin pantallas al menos 1 hora antes de dormir y usa luz tenue cálida o roja en las horas previas al sueño."
+    recomendacion: "😴 Lo demás está bien, pero el sueño falló anoche. El descanso es la base de todo — sin él, con el tiempo lo demás también se resiente. Esta noche prueba una cosa concreta: cuarto oscuro, fresco (entre 15 y 19°C) y sin pantallas al menos 30-60 minutos antes de dormir. Si puedes, cambia el móvil por un libro o algo relajante esa última hora.",
+    alternativa: "No puedes controlar el ambiente ni dejar las pantallas: activa el modo oscuro o noche en todos tus dispositivos y baja el brillo al mínimo en la última hora. No es lo mismo que apagarlos, pero reduce significativamente el impacto de la luz azul."
   },
   {
     id: "solo-energia-baja",
     prioridad: 3,
     condicion: (s, e, c) => e === 0 && s >= 1 && c >= 1,
-    recomendacion: "⚡ Energía baja a pesar de un descanso aceptable. Blueprint recomienda exposición a luz natural dentro de los primeros 15-30 minutos de despertar para regular la producción de melatonina y activar el estado de alerta. Si no hay luz solar disponible usa un dispositivo de 10,000 lux. Añade una caminata corta para activar el metabolismo."
+    recomendacion: "⚡ Dormiste bien y cenaste bien, pero la energía no acompañó hoy. Puede pasar. Una cosa que marca la diferencia: mañana, en los primeros 30 minutos después de despertar, sal a tomar luz natural aunque sea 10-15 minutos. Eso le dice a tu cuerpo que ya es de día y activa la energía de manera natural. Si no hay sol, una vuelta corta también ayuda.",
+    alternativa: "No puedes salir ni hay luz solar: haz 5-10 minutos de movimiento ligero nada más despertar — estiramientos, caminar por la casa. El movimiento activa las mismas señales de alerta que la luz natural, aunque de forma más leve."
   },
   {
     id: "solo-cena-tarde",
     prioridad: 3,
     condicion: (s, e, c) => c === 0 && s >= 1 && e >= 1,
-    recomendacion: "🍽️ Tu única área de mejora es el horario de cena. Blueprint explica que cenar tarde mantiene el sistema digestivo activo durante el sueño, elevando la frecuencia cardíaca y reduciendo la calidad de recuperación nocturna. Empieza cenando al menos 2 horas antes de dormir e intenta progresar hacia una ventana más amplia."
+    recomendacion: "🍽️ Sueño y energía en buena forma — solo la cena llegó tarde. Cenar muy tarde hace que tu cuerpo trabaje digiriendo mientras intentas descansar, lo que reduce la calidad del sueño aunque no lo notes mucho todavía. Esta semana, intenta cerrar la cocina al menos 2 horas antes de dormir. Un cambio pequeño con impacto real.",
+    alternativa: "No puedes cenar más temprano esta semana: empieza por adelantar solo 15-20 minutos. No parece mucho pero crea el hábito. En dos semanas ya habrás adelantado casi media hora sin que se sienta como un esfuerzo."
   },
   {
-  id: "solo-sueno-moderado",
-  prioridad: 3,
-  condicion: (s, e, c) => s === 1 && e === 2 && c === 2,
-  recomendacion: "😴 Tu cena y energía están en niveles óptimos pero tu sueño no está siendo completamente reparador. Blueprint indica que cuando la alimentación es correcta y aun así el sueño es irregular, el problema suele estar en el ambiente o la rutina previa al sueño. Acción concreta: mantén tu habitación entre 15-19°C con oscuridad total, usa luz tenue cálida en las 2 horas previas a dormir y añade una rutina de relajación de 30-60 minutos antes de acostarte."
+    id: "solo-sueno-moderado",
+    prioridad: 3,
+    condicion: (s, e, c) => s === 1 && e === 2 && c === 2,
+    recomendacion: "😴 Cenas bien, tienes buena energía — lo único que falla es la calidad del sueño. Cuando todo lo demás está bien y aún así el sueño no es reparador, casi siempre tiene que ver con el ambiente o los 60 minutos antes de acostarte. Prueba esto: cuarto fresco (entre 15 y 19°C), luz tenue en las 2 horas previas a dormir y una pequeña rutina de relajación antes de meterte a la cama — puede ser leer, respirar tranquilo, lo que te funcione.",
+    alternativa: "No puedes cambiar el ambiente ni crear una rutina nueva: elige una sola cosa pequeña para hacer diferente esta noche antes de dormir — puede ser dejar el móvil en otra habitación, tomarte un vaso de agua tranquilo o simplemente sentarte 5 minutos sin hacer nada. La rutina no tiene que ser elaborada para funcionar."
   },
-  
+
   // ============================
   // PRIORIDAD 4 — Estado óptimo
   // ============================
@@ -141,9 +151,10 @@ const blueprintReglas = [
     id: "optimo",
     prioridad: 4,
     condicion: (s, e, c) => s === 2 && e === 2 && c === 2,
-    recomendacion: "🟢 Recuperación óptima. Estás aplicando los pilares centrales del Blueprint correctamente. Para potenciar aún más tu recuperación añade: exposición a luz natural en los primeros 15-30 minutos de despertar, una rutina de relajación de 30-60 minutos antes de dormir y mantén tu habitación entre 15-19°C. La consistencia diaria es lo que genera resultados biológicos reales."
+    recomendacion: "🟢 Todo en orden — dormiste bien, tienes energía y cenaste a buena hora. Eso no es poco. Para seguir subiendo el nivel, puedes añadir: luz natural en los primeros 30 minutos del día y mantener el cuarto entre 15 y 19°C al dormir. Lo más importante ahora es la consistencia — los resultados reales vienen de repetir esto día tras día.",
+    alternativa: "No puedes añadir nada nuevo ahora mismo: no pasa nada. Lo más valioso que puedes hacer es no romper lo que ya funciona — mantén los horarios aunque sea fin de semana."
   },
- 
+
   // ============================
   // PRIORIDAD 5 — Fallback general
   // ============================
@@ -151,9 +162,10 @@ const blueprintReglas = [
     id: "general",
     prioridad: 5,
     condicion: (s, e, c) => true,
-    recomendacion: "🟡 Hay margen de mejora en tu recuperación. Blueprint recomienda tres hábitos base: misma hora de sueño todos los días, última comida al menos 2 horas antes de dormir y exposición a luz natural al despertar. La consistencia en estos tres puntos es la base de toda recuperación biológica."
+    recomendacion: "🟡 Hay espacio para mejorar. Tres hábitos simples que marcan la diferencia: acostarte a la misma hora todos los días, cenar al menos 2 horas antes de dormir y tomar luz natural al despertar. No tienes que hacer todo a la vez — elige uno y empieza por ahí.",
+    alternativa: "No puedes implementar los tres hábitos: elige solo uno. El más fácil para ti. Cualquiera de los tres tiene impacto por sí solo — no tienes que hacerlos todos a la vez para empezar a notar diferencia."
   }
- 
+
 ];
  
  
@@ -194,7 +206,14 @@ function obtenerRecomendacion() {
     .sort((a, b) => a.prioridad - b.prioridad);
  
   // Devuelve la recomendación de mayor prioridad (la primera)
-  return reglasCumplidas[0].recomendacion;
+   return{
+
+    recomendacion: reglasCumplidas[0].recomendacion,
+
+    alternativa: reglasCumplidas[0].alternativa
+
+   }
+  
 }
  
  
@@ -233,8 +252,9 @@ function analizar(){
  
    const suma        = sumaDatos();
    const estado      = obtenerEstadoscore(suma);   
-   const recomendacion = obtenerRecomendacion();
+   const {recomendacion, alternativa} = obtenerRecomendacion();
    const explicacion = obtenerexplicacion();
+   
  
    // porcentaje para la barra
    const pct = (suma / 5) * 100;
@@ -255,6 +275,10 @@ function analizar(){
       <div class="rec-label">Recomendación Blueprint</div>
       <div class="rec-text">${recomendacion}</div>
     </div>
+    <div class="rec-card">
+      <div class="rec-label">Si no puedes aplicarlo - alternativa</div>
+      <div class="rec-text">${alternativa}</div>
+    </div>
     <div class="section-title" style="margin-bottom:0.75rem;">Análisis por variable</div>
     <div class="exp-grid">
       <div class="exp-item exp-sueno"><div class="exp-item-label">Sueño</div><div class="exp-item-text">${explicacion.sueno}</div></div>
@@ -265,6 +289,8 @@ function analizar(){
  
   document.getElementById('overlay').classList.add('open');
   setTimeout(() => { const b = document.getElementById('sbar'); if (b) b.style.width = pct + '%'; }, 400);
+
+
  
 }
  
