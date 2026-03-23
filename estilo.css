@@ -1,22 +1,93 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 body {
   font-family: system-ui, sans-serif;
   background: #fff;
   color: #1a1a1a;
 }
-
+ 
+ 
+/* ----------------------
+   LANDING PAGE
+---------------------- */
+ 
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-bottom: 0.5px solid #e5e5e5;
+}
+ 
+.landing-tag {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 1.25rem;
+}
+ 
+.landing-title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.25;
+  max-width: 480px;
+  margin-bottom: 1rem;
+}
+ 
+.landing-sub {
+  font-size: 15px;
+  color: #666;
+  max-width: 360px;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+ 
+.empezar-btn {
+  padding: 11px 32px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 0.5px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+ 
+.empezar-btn:hover { background: #f5f5f5; }
+.empezar-btn:active { transform: scale(0.98); }
+ 
+/* Mobile */
+@media (max-width: 480px) {
+  .landing { padding: 2.5rem 1.25rem; }
+  .landing-title { font-size: 26px; }
+  .landing-sub { font-size: 14px; }
+  .empezar-btn { width: 100%; }
+}
+ 
+ 
+/* ----------------------
+   APP
+---------------------- */
+ 
 .app {
   max-width: 680px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
-
+ 
+ 
 /* ----------------------
    HEADER
 ---------------------- */
+ 
 .header { margin-bottom: 2.5rem; }
-
+ 
 .header-label {
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -24,14 +95,16 @@ body {
   color: #999;
   margin-bottom: 0.5rem;
 }
-
+ 
 .header-title { font-size: 26px; font-weight: 500; }
-
+ 
 .header-sub { font-size: 14px; color: #666; margin-top: 6px; }
-
+ 
+ 
 /* ----------------------
    SECTION TITLE
 ---------------------- */
+ 
 .section-title {
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -39,12 +112,14 @@ body {
   color: #999;
   margin-bottom: 1rem;
 }
-
+ 
+ 
 /* ----------------------
    SELECTORES
 ---------------------- */
+ 
 .selector-group { margin-bottom: 1.75rem; }
-
+ 
 .selector-label {
   font-size: 14px;
   font-weight: 500;
@@ -53,9 +128,9 @@ body {
   align-items: center;
   gap: 8px;
 }
-
+ 
 .options { display: flex; gap: 8px; flex-wrap: wrap; }
-
+ 
 .option-btn {
   padding: 8px 16px;
   font-size: 13px;
@@ -66,24 +141,28 @@ body {
   cursor: pointer;
   transition: all 0.15s;
 }
-
+ 
 .option-btn:hover { background: #f5f5f5; color: #1a1a1a; }
 .option-btn.selected-2 { border-color: #1D9E75; background: #E1F5EE; color: #085041; }
 .option-btn.selected-1 { border-color: #BA7517; background: #FAEEDA; color: #633806; }
 .option-btn.selected-0 { border-color: #A32D2D; background: #FCEBEB; color: #501313; }
-
+ 
+ 
 /* ----------------------
    DIVIDER
 ---------------------- */
+ 
 .divider {
   border: none;
   border-top: 0.5px solid #e5e5e5;
   margin: 2rem 0;
 }
-
+ 
+ 
 /* ----------------------
    BOTÓN ANALIZAR
 ---------------------- */
+ 
 .analizar-btn {
   width: 100%;
   padding: 13px;
@@ -96,14 +175,16 @@ body {
   cursor: pointer;
   transition: all 0.15s;
 }
-
+ 
 .analizar-btn:hover { background: #f5f5f5; }
 .analizar-btn:active { transform: scale(0.99); }
 .analizar-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
+ 
+ 
 /* ----------------------
    DISCLAIMER
 ---------------------- */
+ 
 .disclaimer {
   display: flex;
   align-items: center;
@@ -114,7 +195,7 @@ body {
   background: #FCEBEB;
   margin-top: 0.75rem;
 }
-
+ 
 .disclaimer-dot {
   width: 6px;
   height: 6px;
@@ -122,12 +203,14 @@ body {
   background: #E24B4A;
   flex-shrink: 0;
 }
-
+ 
 .disclaimer-text { font-size: 12px; color: #A32D2D; line-height: 1.4; }
-
+ 
+ 
 /* ----------------------
    OVERLAY
 ---------------------- */
+ 
 .overlay {
   position: fixed;
   inset: 0;
@@ -140,12 +223,14 @@ body {
   pointer-events: none;
   transition: opacity 0.25s ease;
 }
-
+ 
 .overlay.open { opacity: 1; pointer-events: all; }
-
+ 
+ 
 /* ----------------------
    PANEL DE RESULTADOS
 ---------------------- */
+ 
 .panel {
   width: 100%;
   max-width: 680px;
@@ -158,9 +243,9 @@ body {
   transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
   padding: 0 1.25rem 2rem;
 }
-
+ 
 .overlay.open .panel { transform: translateY(0); }
-
+ 
 .panel-handle-row {
   display: flex;
   justify-content: center;
@@ -172,23 +257,23 @@ body {
   border-bottom: 0.5px solid #e5e5e5;
   margin-bottom: 1.5rem;
 }
-
+ 
 .panel-handle {
   width: 36px;
   height: 4px;
   border-radius: 2px;
   background: #ccc;
 }
-
+ 
 .panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
-
+ 
 .panel-title { font-size: 16px; font-weight: 500; }
-
+ 
 .close-btn {
   padding: 6px 14px;
   font-size: 12px;
@@ -198,12 +283,14 @@ body {
   color: #666;
   cursor: pointer;
 }
-
+ 
 .close-btn:hover { background: #f5f5f5; }
-
+ 
+ 
 /* ----------------------
    ESTADO CARD
 ---------------------- */
+ 
 .estado-card {
   padding: 1.25rem;
   border-radius: 12px;
@@ -214,7 +301,7 @@ body {
   align-items: center;
   gap: 1.25rem;
 }
-
+ 
 .score-circle {
   width: 52px;
   height: 52px;
@@ -226,9 +313,9 @@ body {
   font-weight: 500;
   flex-shrink: 0;
 }
-
+ 
 .estado-info { flex: 1; }
-
+ 
 .estado-label {
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -236,9 +323,9 @@ body {
   color: #999;
   margin-bottom: 4px;
 }
-
+ 
 .estado-text { font-size: 17px; font-weight: 500; }
-
+ 
 .score-bar-wrap {
   margin-top: 8px;
   height: 3px;
@@ -246,16 +333,18 @@ body {
   border-radius: 2px;
   overflow: hidden;
 }
-
+ 
 .score-bar {
   height: 100%;
   border-radius: 2px;
   transition: width 0.7s ease 0.2s;
 }
-
+ 
+ 
 /* ----------------------
    RECOMENDACIÓN
 ---------------------- */
+ 
 .rec-card {
   padding: 1.25rem;
   border-radius: 12px;
@@ -263,7 +352,7 @@ body {
   background: #fff;
   margin-bottom: 1.25rem;
 }
-
+ 
 .rec-label {
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -271,20 +360,22 @@ body {
   color: #999;
   margin-bottom: 10px;
 }
-
+ 
 .rec-text { font-size: 14px; line-height: 1.65; }
-
+ 
+ 
 /* ----------------------
    EXPLICACIÓN POR VARIABLE
 ---------------------- */
+ 
 .exp-grid { display: grid; gap: 0.6rem; }
-
+ 
 .exp-item {
   padding: 0.9rem 1.1rem;
   border-radius: 8px;
   border-left: 2px solid;
 }
-
+ 
 .exp-item-label {
   font-size: 11px;
   letter-spacing: 0.08em;
@@ -292,24 +383,26 @@ body {
   margin-bottom: 5px;
   font-weight: 500;
 }
-
+ 
 .exp-item-text { font-size: 13px; line-height: 1.6; }
-
+ 
 .exp-sueno  { border-color: #378ADD; background: #E6F1FB; }
 .exp-sueno  .exp-item-label { color: #185FA5; }
 .exp-sueno  .exp-item-text  { color: #0C447C; }
-
+ 
 .exp-energia { border-color: #EF9F27; background: #FAEEDA; }
 .exp-energia .exp-item-label { color: #854F0B; }
 .exp-energia .exp-item-text  { color: #633806; }
-
+ 
 .exp-cena  { border-color: #1D9E75; background: #E1F5EE; }
 .exp-cena  .exp-item-label { color: #0F6E56; }
 .exp-cena  .exp-item-text  { color: #085041; }
-
+ 
+ 
 /* ----------------------
    DISCLAIMER DEL PANEL
 ---------------------- */
+ 
 .panel-disclaimer {
   display: flex;
   align-items: center;

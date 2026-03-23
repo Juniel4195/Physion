@@ -1,12 +1,12 @@
 //-----------------------
-//variable Global
+// Variable Global
+//-----------------------
 let datos = [null, null, null]
-//----------------------
  
  
 //----------------------------
-//Base de Datos
-//EstadoScore y explicacion
+// Base de Datos
+// EstadoScore y explicacion
 //----------------------------
 const Estadoscore = {
  
@@ -20,7 +20,7 @@ const Estadoscore = {
          }
     }
  
-    //explicacion
+    // explicacion
     const reglaexplicacion = {
  
       sueno: {
@@ -49,11 +49,11 @@ const Estadoscore = {
  
  
 //--------------------------
-//Base de datos blueprint
+// Base de datos Blueprint
 //--------------------------
  
 const blueprintReglas = [
-
+ 
   // ============================
   // PRIORIDAD 1 — Casos críticos
   // ============================
@@ -77,9 +77,8 @@ const blueprintReglas = [
     condicion: (s, e, c) => s === 0 && c === 0,
     recomendacion: "🚨 Cenar muy tarde te arruinó el sueño. Cuando comes justo antes de dormir, tu cuerpo sigue trabajando en la digestión en vez de descansar — y eso se nota. Esta semana intenta cenar al menos 2 horas antes de irte a la cama. No tiene que ser perfecto desde el primer día, solo un poco antes que ayer.",
     alternativa: "No puedes cenar 2 horas antes: haz la cena más ligera que puedas. Una cena pesada y tardía es peor que una ligera y tardía — tu cuerpo tiene menos trabajo que hacer mientras intenta descansar."
-
   },
-
+ 
   // ============================
   // PRIORIDAD 2 — Problemas moderados combinados
   // ============================
@@ -111,7 +110,7 @@ const blueprintReglas = [
     recomendacion: "🟡 Tienes buena energía, pero tu sueño no está siendo todo lo reparador que podría. La cena un poco tarde puede estar jugando en contra sin que lo notes mucho. Aprovecha que hoy te sientes bien para hacer un ajuste pequeño: intenta cenar 30-45 minutos antes esta semana. Cuando la energía está bien es el mejor momento para mejorar el sueño — antes de que se convierta en un problema.",
     alternativa: "No puedes adelantar la cena: intenta que tu última comida sea la más ligera del día. Si puedes, evita comer en el sofá o en la cama — comer en la mesa aunque sea tarde le da al cuerpo una señal más clara de que la comida terminó."
   },
-
+ 
   // ============================
   // PRIORIDAD 3 — Un solo problema
   // ============================
@@ -143,7 +142,7 @@ const blueprintReglas = [
     recomendacion: "😴 Cenas bien, tienes buena energía — lo único que falla es la calidad del sueño. Cuando todo lo demás está bien y aún así el sueño no es reparador, casi siempre tiene que ver con el ambiente o los 60 minutos antes de acostarte. Prueba esto: cuarto fresco (entre 15 y 19°C), luz tenue en las 2 horas previas a dormir y una pequeña rutina de relajación antes de meterte a la cama — puede ser leer, respirar tranquilo, lo que te funcione.",
     alternativa: "No puedes cambiar el ambiente ni crear una rutina nueva: elige una sola cosa pequeña para hacer diferente esta noche antes de dormir — puede ser dejar el móvil en otra habitación, tomarte un vaso de agua tranquilo o simplemente sentarte 5 minutos sin hacer nada. La rutina no tiene que ser elaborada para funcionar."
   },
-
+ 
   // ============================
   // PRIORIDAD 4 — Estado óptimo
   // ============================
@@ -154,7 +153,7 @@ const blueprintReglas = [
     recomendacion: "🟢 Todo en orden — dormiste bien, tienes energía y cenaste a buena hora. Eso no es poco. Para seguir subiendo el nivel, puedes añadir: luz natural en los primeros 30 minutos del día y mantener el cuarto entre 15 y 19°C al dormir. Lo más importante ahora es la consistencia — los resultados reales vienen de repetir esto día tras día.",
     alternativa: "No puedes añadir nada nuevo ahora mismo: no pasa nada. Lo más valioso que puedes hacer es no romper lo que ya funciona — mantén los horarios aunque sea fin de semana."
   },
-
+ 
   // ============================
   // PRIORIDAD 5 — Fallback general
   // ============================
@@ -165,23 +164,14 @@ const blueprintReglas = [
     recomendacion: "🟡 Hay espacio para mejorar. Tres hábitos simples que marcan la diferencia: acostarte a la misma hora todos los días, cenar al menos 2 horas antes de dormir y tomar luz natural al despertar. No tienes que hacer todo a la vez — elige uno y empieza por ahí.",
     alternativa: "No puedes implementar los tres hábitos: elige solo uno. El más fácil para ti. Cualquiera de los tres tiene impacto por sí solo — no tienes que hacerlos todos a la vez para empezar a notar diferencia."
   }
-
+ 
 ];
  
  
 //-----------------------------
-//Funciones Modulares
+// Funciones Modulares
 //-----------------------------
  
- 
-/*function leerDatos(){
- 
-    datos[0] = parseInt(document.getElementById("sueno").value),
-    datos[1] = parseInt(document.getElementById("energia").value),
-    datos[2] = parseInt(document.getElementById("cena").value)
- 
-}
-*/
 function sumaDatos(){
  
   return Math.min(datos[0] + datos[1] + datos[2], 5)
@@ -206,24 +196,20 @@ function obtenerRecomendacion() {
     .sort((a, b) => a.prioridad - b.prioridad);
  
   // Devuelve la recomendación de mayor prioridad (la primera)
-   return{
-
+  return {
     recomendacion: reglasCumplidas[0].recomendacion,
-
-    alternativa: reglasCumplidas[0].alternativa
-
-   }
-  
-}
+    alternativa:   reglasCumplidas[0].alternativa
+  }
  
+}
  
 function obtenerexplicacion(){
  
    return{
  
-      sueno: reglaexplicacion.sueno[datos[0]],
+      sueno:   reglaexplicacion.sueno[datos[0]],
       energia: reglaexplicacion.energia[datos[1]],
-      cena: reglaexplicacion.cena[datos[2]]
+      cena:    reglaexplicacion.cena[datos[2]]
  
    }
  
@@ -231,8 +217,8 @@ function obtenerexplicacion(){
  
  
 //-----------------------
-//parte de frontem
-//------------------------
+// Parte de Frontend
+//-----------------------
  
 function sel(campo, val, btn) {
   const idx = campo === 'sueno' ? 0 : campo === 'energia' ? 1 : 2;
@@ -242,25 +228,28 @@ function sel(campo, val, btn) {
   document.getElementById('btn-analizar').disabled = datos.filter(d => d !== null).length < 3;
 }
  
+// Landing — scroll hacia la app
+function empezar() {
+  document.getElementById('app-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+ 
+ 
 //----------------------
-//Funcion Principal
+// Funcion Principal
 //-----------------------
  
 function analizar(){
  
-  
- 
-   const suma        = sumaDatos();
-   const estado      = obtenerEstadoscore(suma);   
-   const {recomendacion, alternativa} = obtenerRecomendacion();
-   const explicacion = obtenerexplicacion();
-   
+   const suma           = sumaDatos();
+   const estado         = obtenerEstadoscore(suma);
+   const { recomendacion, alternativa } = obtenerRecomendacion();
+   const explicacion    = obtenerexplicacion();
  
    // porcentaje para la barra
    const pct = (suma / 5) * 100;
  
    //--------------------
-   //Parte de frontem
+   // Parte de Frontend
    //--------------------
    document.getElementById('panel-content').innerHTML = `
     <div class="estado-card">
@@ -289,13 +278,12 @@ function analizar(){
  
   document.getElementById('overlay').classList.add('open');
   setTimeout(() => { const b = document.getElementById('sbar'); if (b) b.style.width = pct + '%'; }, 400);
-
-
  
 }
  
+ 
 //------------------------------
-// Panel - Abrir y Cerrar - Frontem
+// Panel - Abrir y Cerrar
 //------------------------------
  
 function cerrar() {

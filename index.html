@@ -7,16 +7,29 @@
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-
-  <div class="app">
+ 
+  <!-- =====================
+       LANDING PAGE
+  ===================== -->
+  <div class="landing" id="landing">
+    <div class="landing-tag">Blueprint Protocol</div>
+    <div class="landing-title">Tu biología habla. Este sistema la escucha.</div>
+    <div class="landing-sub">Convierte tres datos de tu día en una recomendación concreta basada en el protocolo Blueprint.</div>
+    <button class="empezar-btn" onclick="empezar()">Empezar</button>
+  </div>
+ 
+  <!-- =====================
+       APLICACION
+  ===================== -->
+  <div class="app" id="app-section">
     <div class="header">
       <div class="header-label">Blueprint Protocol</div>
       <div class="header-title">Evaluación de recuperación</div>
       <div class="header-sub">Registra tus datos biológicos del día para obtener tu estado y recomendación personalizada.</div>
     </div>
-
+ 
     <div class="section-title">Variables del día</div>
-
+ 
     <div class="selector-group">
       <div class="selector-label">🌙 Sueño</div>
       <div class="options" id="opts-sueno">
@@ -25,7 +38,7 @@
         <button class="option-btn" onclick="sel('sueno',0,this)">Mal sueño</button>
       </div>
     </div>
-
+ 
     <div class="selector-group">
       <div class="selector-label">⚡ Energía</div>
       <div class="options" id="opts-energia">
@@ -34,7 +47,7 @@
         <button class="option-btn" onclick="sel('energia',0,this)">Cansado</button>
       </div>
     </div>
-
+ 
     <div class="selector-group">
       <div class="selector-label">🍽 Tiempo de cena</div>
       <div class="options" id="opts-cena">
@@ -43,17 +56,19 @@
         <button class="option-btn" onclick="sel('cena',0,this)">Cena muy tarde</button>
       </div>
     </div>
-
+ 
     <hr class="divider">
     <button class="analizar-btn" id="btn-analizar" onclick="analizar()" disabled>Analizar mi recuperación</button>
-
+ 
     <div class="disclaimer">
       <div class="disclaimer-dot"></div>
       <div class="disclaimer-text">Este sistema no reemplaza diagnósticos médicos. Las recomendaciones están basadas en el protocolo Blueprint y son solo orientativas.</div>
     </div>
   </div>
-
-  <!-- PANEL DE RESULTADOS -->
+ 
+  <!-- =====================
+       PANEL DE RESULTADOS
+  ===================== -->
   <div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
     <div class="panel" id="panel">
       <div class="panel-handle-row"><div class="panel-handle"></div></div>
@@ -70,7 +85,7 @@
       </div>
     </div>
   </div>
-
+ 
   <script src="Physion.js"></script>
 </body>
 </html>
