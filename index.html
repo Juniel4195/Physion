@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blueprint — Evaluación de Recuperación</title>
+  <title>Vitalis — Evaluación de Recuperación</title>
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -12,10 +12,49 @@
        LANDING PAGE
   ===================== -->
   <div class="landing" id="landing">
-    <div class="landing-tag">Blueprint Protocol</div>
-    <div class="landing-title">Tu biología habla. Este sistema la escucha.</div>
-    <div class="landing-sub">Convierte tres datos de tu día en una recomendación concreta basada en el protocolo Blueprint.</div>
-    <button class="empezar-btn" onclick="empezar()">Empezar</button>
+ 
+    <!-- Navbar -->
+    <nav class="nav">
+      <img src="vitalis-logo.png.jpeg" alt="Vitalis" class="nav-logo">
+      <span class="nav-tag">Blueprint Protocol</span>
+    </nav>
+ 
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-tag">Evaluación de recuperación diaria</div>
+      <h1 class="landing-title">Tu biología habla.<br><span>Este sistema la escucha.</span></h1>
+      <p class="landing-sub">Convierte tres datos de tu día en una recomendación concreta basada en el protocolo Blueprint.</p>
+      <button class="empezar-btn" onclick="empezar()">Empezar evaluación</button>
+      <p class="hero-note">Tarda menos de 30 segundos</p>
+    </div>
+ 
+    <!-- Pasos -->
+    <div class="pasos">
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <div class="paso-body">
+          <div class="paso-title">Selecciona tus datos</div>
+          <div class="paso-desc">Indica cómo estuvo tu sueño, energía y hora de cena.</div>
+        </div>
+      </div>
+      <div class="paso-arrow">→</div>
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <div class="paso-body">
+          <div class="paso-title">El sistema analiza</div>
+          <div class="paso-desc">El algoritmo evalúa tu combinación contra el protocolo.</div>
+        </div>
+      </div>
+      <div class="paso-arrow">→</div>
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <div class="paso-body">
+          <div class="paso-title">Recibe tu recomendación</div>
+          <div class="paso-desc">Una acción concreta y una alternativa si no puedes aplicarla.</div>
+        </div>
+      </div>
+    </div>
+ 
   </div>
  
   <!-- =====================
@@ -23,9 +62,9 @@
   ===================== -->
   <div class="app" id="app-section">
     <div class="header">
-      <div class="header-label">Blueprint Protocol</div>
-      <div class="header-title">Evaluación de recuperación</div>
-      <div class="header-sub">Registra tus datos biológicos del día para obtener tu estado y recomendación personalizada.</div>
+      <div class="header-label">Evaluación diaria</div>
+      <div class="header-title">¿Cómo estuvo tu día?</div>
+      <div class="header-sub">Selecciona cómo te fue en cada variable y obtén tu análisis personalizado.</div>
     </div>
  
     <div class="section-title">Variables del día</div>
