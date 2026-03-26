@@ -110,6 +110,14 @@ const blueprintReglas = [
     recomendacion: "🟡 Tienes buena energía, pero tu sueño no está siendo todo lo reparador que podría. La cena un poco tarde puede estar jugando en contra sin que lo notes mucho. Aprovecha que hoy te sientes bien para hacer un ajuste pequeño: intenta cenar 30-45 minutos antes esta semana. Cuando la energía está bien es el mejor momento para mejorar el sueño — antes de que se convierta en un problema.",
     alternativa: "No puedes adelantar la cena: intenta que tu última comida sea la más ligera del día. Si puedes, evita comer en el sofá o en la cama — comer en la mesa aunque sea tarde le da al cuerpo una señal más clara de que la comida terminó."
   },
+
+  {
+    id: "energia-moderada-cena-tardia",
+    prioridad: 2,
+    condicion: (s, e, c) => s === 2 && e === 1 && c === 1,
+    recomendacion: "🔋 Dormiste bien, pero la cena tardía y tu energía baja están conectadas. Blueprint explica que cuando cenas tarde tu cuerpo gasta energía digiriendo durante la noche en vez de recuperarse, y eso se nota al día siguiente en tu nivel de energía. Acción concreta: adelanta la cena 30-45 minutos esta semana y observa si tu energía matutina mejora.",
+    alternativa: "Si no puedes cenar más temprano por tu horario: reduce el tamaño de la cena tardía y hazla lo más ligera posible, evita carbohidratos pesados y grasas. Una cena ligera tarde es menos dañina para tu recuperación que una cena abundante tarde."
+  },
  
   // ============================
   // PRIORIDAD 3 — Un solo problema
@@ -141,6 +149,22 @@ const blueprintReglas = [
     condicion: (s, e, c) => s === 1 && e === 2 && c === 2,
     recomendacion: "😴 Cenas bien, tienes buena energía — lo único que falla es la calidad del sueño. Cuando todo lo demás está bien y aún así el sueño no es reparador, casi siempre tiene que ver con el ambiente o los 60 minutos antes de acostarte. Prueba esto: cuarto fresco (entre 15 y 19°C), luz tenue en las 2 horas previas a dormir y una pequeña rutina de relajación antes de meterte a la cama — puede ser leer, respirar tranquilo, lo que te funcione.",
     alternativa: "No puedes cambiar el ambiente ni crear una rutina nueva: elige una sola cosa pequeña para hacer diferente esta noche antes de dormir — puede ser dejar el móvil en otra habitación, tomarte un vaso de agua tranquilo o simplemente sentarte 5 minutos sin hacer nada. La rutina no tiene que ser elaborada para funcionar."
+  },
+
+  {
+    id: "solo-energia-moderada",
+    prioridad: 3,
+    condicion: (s, e, c) => s === 2 && e === 1 && c === 2,
+    recomendacion: "🔋 Dormiste bien y cenaste a buena hora, pero tu energía no está al 100%. Esto le pasa a tu cuerpo cuando el sueño fue suficiente en horas pero no completamente reparador. Prueba esto hoy: sal a recibir luz natural en los primeros 15-30 minutos después de despertar, aunque sean 10 minutos frente a una ventana. La luz del día le indica a tu cerebro que es hora de activarse y producir energía.",
+    alternativa: 'No puedes salir ni tienes luz natural disponible: muévete 5-10 minutos nada más despertar — estiramientos, caminar por la casa, lo que sea. El movimiento le manda a tu cuerpo la misma señal de "ya es de día, actívate", aunque de forma más leve que el sol.'
+  },
+
+  {
+  id: "solo-cena-tardia-moderada",
+  prioridad: 3,
+  condicion: (s, e, c) => s === 2 && e === 2 && c === 1,
+  recomendacion: "🍽️ Tu sueño y energía están en niveles óptimos, tu único punto débil es la hora de la cena. Aunque por ahora no está afectando tu descanso ni tu energía, Blueprint advierte que cenar tarde de forma repetida eleva tu frecuencia cardíaca durante la noche e interrumpe los ciclos de recuperación profunda a largo plazo. Acción concreta: adelanta la cena 30 minutos esta semana, es un cambio pequeño que tu cuerpo notará rápido.",
+  alternativa: "Si tu horario no te permite cenar más temprano: haz la cena lo más ligera posible, evita carbohidratos pesados y grasas. Una cena ligera tardía es mucho menos dañina para tu recuperación que una cena abundante tardía."
   },
  
   // ============================

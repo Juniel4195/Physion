@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f7f0f0;
+  background: linear-gradient(to bottom, #edddd8 0%, #f2e8e5 40%, #f9f3f2 75%, #fff 100%);
   border-bottom: 0.5px solid #e0c8c8;
 }
  
@@ -29,11 +29,10 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 2.5rem;
-  border-bottom: 0.5px solid #e0c8c8;
 }
  
 .nav-logo {
-  height: 42px;
+  height: 62px;
   width: auto;
 }
  
@@ -67,31 +66,34 @@ body {
   text-transform: uppercase;
   color: #8a1c1c;
   border: 0.5px solid #c9a0a0;
-  background: #fff0f0;
+  background: transparent;
   padding: 5px 16px;
   border-radius: 20px;
   margin-bottom: 2rem;
 }
- 
+
 .landing-title {
-  font-size: 40px;
+  font-size: 58px;
   font-weight: 500;
   color: #1a1a1a;
-  line-height: 1.2;
-  max-width: 520px;
-  margin-bottom: 1.25rem;
+  line-height: 1.1;
+  max-width: 620px;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
- 
+
 .landing-title span {
   color: #8a1c1c;
+  font-weight: 400;
 }
- 
+
 .landing-sub {
-  font-size: 16px;
-  color: #666;
-  max-width: 400px;
+  font-size: 17px;
+  color: #888;
+  max-width: 420px;
   line-height: 1.65;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
 }
  
 .empezar-btn {
@@ -126,8 +128,7 @@ body {
   justify-content: center;
   gap: 0.75rem;
   padding: 1.75rem 2rem;
-  border-top: 0.5px solid #e0c8c8;
-  background: #fff;
+  background: transparent;
   flex-wrap: wrap;
 }
  
