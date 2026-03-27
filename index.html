@@ -19,8 +19,50 @@
       <span class="nav-tag">Blueprint Protocol</span>
     </nav>
  
-    <!-- Hero -->
-    <div class="hero">
+    <!-- Fase 1: Título -->
+    <div class="hero fase" id="fase-titulo">
+      <div class="hero-tag">Evaluación de recuperación diaria</div>
+      <h1 class="landing-title">
+        Tu biología habla.<br>
+        <span id="typewriter"></span><span class="cursor">|</span>
+      </h1>
+      <p class="landing-sub">Convierte tres datos de tu día en una recomendación concreta basada en el protocolo Blueprint.</p>
+      <button class="siguiente-btn" onclick="irFase('fase-titulo', 'fase-pasos')">Siguiente →</button>
+    </div>
+ 
+    <!-- Fase 2: Pasos -->
+    <div class="hero fase oculto" id="fase-pasos">
+      <p class="pasos-intro">¿Cómo funciona?</p>
+      <div class="pasos">
+        <div class="paso">
+          <div class="paso-num">1</div>
+          <div class="paso-body">
+            <div class="paso-title">Selecciona tus datos</div>
+            <div class="paso-desc">Indica cómo estuvo tu sueño, energía y hora de cena.</div>
+          </div>
+        </div>
+        <div class="paso-arrow">→</div>
+        <div class="paso">
+          <div class="paso-num">2</div>
+          <div class="paso-body">
+            <div class="paso-title">El sistema analiza</div>
+            <div class="paso-desc">El algoritmo evalúa tu combinación contra el protocolo.</div>
+          </div>
+        </div>
+        <div class="paso-arrow">→</div>
+        <div class="paso">
+          <div class="paso-num">3</div>
+          <div class="paso-body">
+            <div class="paso-title">Recibe tu recomendación</div>
+            <div class="paso-desc">Una acción concreta y una alternativa si no puedes aplicarla.</div>
+          </div>
+        </div>
+      </div>
+      <button class="siguiente-btn" onclick="irFase('fase-pasos', 'fase-final')">Siguiente →</button>
+    </div>
+ 
+    <!-- Fase 3: Título + botón empezar -->
+    <div class="hero fase oculto" id="fase-final">
       <div class="hero-tag">Evaluación de recuperación diaria</div>
       <h1 class="landing-title">Tu biología habla.<br><span>Este sistema la escucha.</span></h1>
       <p class="landing-sub">Convierte tres datos de tu día en una recomendación concreta basada en el protocolo Blueprint.</p>
@@ -28,38 +70,12 @@
       <p class="hero-note">Tarda menos de 30 segundos</p>
     </div>
  
-    <!-- Pasos -->
-    <div class="pasos">
-      <div class="paso">
-        <div class="paso-num">1</div>
-        <div class="paso-body">
-          <div class="paso-title">Selecciona tus datos</div>
-          <div class="paso-desc">Indica cómo estuvo tu sueño, energía y hora de cena.</div>
-        </div>
-      </div>
-      <div class="paso-arrow">→</div>
-      <div class="paso">
-        <div class="paso-num">2</div>
-        <div class="paso-body">
-          <div class="paso-title">El sistema analiza</div>
-          <div class="paso-desc">El algoritmo evalúa tu combinación contra el protocolo.</div>
-        </div>
-      </div>
-      <div class="paso-arrow">→</div>
-      <div class="paso">
-        <div class="paso-num">3</div>
-        <div class="paso-body">
-          <div class="paso-title">Recibe tu recomendación</div>
-          <div class="paso-desc">Una acción concreta y una alternativa si no puedes aplicarla.</div>
-        </div>
-      </div>
-    </div>
- 
   </div>
  
   <!-- =====================
        APLICACION
   ===================== -->
+  <div class="app-wrapper">
   <div class="app" id="app-section">
     <div class="header">
       <div class="header-label">Evaluación diaria</div>
@@ -104,6 +120,7 @@
       <div class="disclaimer-text">Este sistema no reemplaza diagnósticos médicos. Las recomendaciones están basadas en el protocolo Blueprint y son solo orientativas.</div>
     </div>
   </div>
+  </div><!-- fin app-wrapper -->
  
   <!-- =====================
        PANEL DE RESULTADOS
@@ -126,5 +143,6 @@
   </div>
  
   <script src="Physion.js"></script>
+  <script src="animacion.js"></script>
 </body>
 </html>
