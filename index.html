@@ -7,50 +7,50 @@
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
- 
+
   <!-- =====================
        LANDING PAGE
   ===================== -->
   <div class="landing" id="landing">
- 
+
     <!-- Navbar -->
     <nav class="nav">
       <img src="vitalis-logo.png" alt="Vitalis" class="nav-logo">
       <span class="nav-tag">Blueprint Protocol</span>
     </nav>
- 
+
     <!-- Fase 1: Título -->
     <div class="hero fase" id="fase-titulo">
       <div class="hero-tag">Evaluación de recuperación diaria</div>
       <h1 class="landing-title">
-        Tu biología habla.<br>
-        <span id="typewriter"></span><span class="cursor">|</span>
+        <span id="typewriter-linea1"></span><br>
+        <span id="typewriter-linea2" class="landing-title-span"></span><span class="cursor" id="cursor-tw">|</span>
       </h1>
       <p class="landing-sub">Convierte tres datos de tu día en una recomendación concreta basada en el protocolo Blueprint.</p>
-      <button class="siguiente-btn" onclick="irFase('fase-titulo', 'fase-pasos')">Siguiente →</button>
+      <button class="siguiente-btn" id="btn-siguiente-1" style="opacity:0;pointer-events:none;" onclick="irFase('fase-titulo', 'fase-pasos')">Siguiente →</button>
     </div>
- 
+
     <!-- Fase 2: Pasos -->
     <div class="hero fase oculto" id="fase-pasos">
       <p class="pasos-intro">¿Cómo funciona?</p>
       <div class="pasos">
-        <div class="paso">
+        <div class="paso" style="opacity:0;transform:translateY(16px);">
           <div class="paso-num">1</div>
           <div class="paso-body">
             <div class="paso-title">Selecciona tus datos</div>
             <div class="paso-desc">Indica cómo estuvo tu sueño, energía y hora de cena.</div>
           </div>
         </div>
-        <div class="paso-arrow">→</div>
-        <div class="paso">
+        <div class="paso-arrow" style="opacity:0;transform:translateY(16px);">→</div>
+        <div class="paso" style="opacity:0;transform:translateY(16px);">
           <div class="paso-num">2</div>
           <div class="paso-body">
             <div class="paso-title">El sistema analiza</div>
             <div class="paso-desc">El algoritmo evalúa tu combinación contra el protocolo.</div>
           </div>
         </div>
-        <div class="paso-arrow">→</div>
-        <div class="paso">
+        <div class="paso-arrow" style="opacity:0;transform:translateY(16px);">→</div>
+        <div class="paso" style="opacity:0;transform:translateY(16px);">
           <div class="paso-num">3</div>
           <div class="paso-body">
             <div class="paso-title">Recibe tu recomendación</div>
@@ -58,9 +58,9 @@
           </div>
         </div>
       </div>
-      <button class="siguiente-btn" onclick="irFase('fase-pasos', 'fase-final')">Siguiente →</button>
+      <button class="siguiente-btn" id="btn-siguiente-2" style="opacity:0;pointer-events:none;" onclick="irFase('fase-pasos', 'fase-final')">Siguiente →</button>
     </div>
- 
+
     <!-- Fase 3: Título + botón empezar -->
     <div class="hero fase oculto" id="fase-final">
       <div class="hero-tag">Evaluación de recuperación diaria</div>
@@ -69,9 +69,9 @@
       <button class="empezar-btn" onclick="empezar()">Empezar evaluación</button>
       <p class="hero-note">Tarda menos de 30 segundos</p>
     </div>
- 
+
   </div>
- 
+
   <!-- =====================
        APLICACION
   ===================== -->
@@ -82,9 +82,9 @@
       <div class="header-title">¿Cómo estuvo tu día?</div>
       <div class="header-sub">Selecciona cómo te fue en cada variable y obtén tu análisis personalizado.</div>
     </div>
- 
+
     <div class="section-title">Variables del día</div>
- 
+
     <div class="selector-group">
       <div class="selector-label">🌙 Sueño</div>
       <div class="options" id="opts-sueno">
@@ -93,7 +93,7 @@
         <button class="option-btn" onclick="sel('sueno',0,this)">Mal sueño</button>
       </div>
     </div>
- 
+
     <div class="selector-group">
       <div class="selector-label">⚡ Energía</div>
       <div class="options" id="opts-energia">
@@ -102,7 +102,7 @@
         <button class="option-btn" onclick="sel('energia',0,this)">Cansado</button>
       </div>
     </div>
- 
+
     <div class="selector-group">
       <div class="selector-label">🍽 Tiempo de cena</div>
       <div class="options" id="opts-cena">
@@ -111,17 +111,17 @@
         <button class="option-btn" onclick="sel('cena',0,this)">Cena muy tarde</button>
       </div>
     </div>
- 
+
     <hr class="divider">
     <button class="analizar-btn" id="btn-analizar" onclick="analizar()" disabled>Analizar mi recuperación</button>
- 
+
     <div class="disclaimer">
       <div class="disclaimer-dot"></div>
       <div class="disclaimer-text">Este sistema no reemplaza diagnósticos médicos. Las recomendaciones están basadas en el protocolo Blueprint y son solo orientativas.</div>
     </div>
   </div>
   </div><!-- fin app-wrapper -->
- 
+
   <!-- =====================
        PANEL DE RESULTADOS
   ===================== -->
@@ -141,7 +141,7 @@
       </div>
     </div>
   </div>
- 
+
   <script src="Physion.js"></script>
   <script src="animacion.js"></script>
 </body>
