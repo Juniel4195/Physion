@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vitalis — Evaluación de Recuperación</title>
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="estilo.css"> 
 </head>
 <body>
 
@@ -109,9 +109,18 @@
     <div class="selector-group">
       <div class="selector-label">🍽 Tiempo de cena</div>
       <div class="options" id="opts-cena">
-        <button class="option-btn" onclick="sel('cena',2,this)">Cena temprana</button>
-        <button class="option-btn" onclick="sel('cena',1,this)">Cena tardía</button>
-        <button class="option-btn" onclick="sel('cena',0,this)">Cena muy tarde</button>
+        <div class="option-wrap">
+          <button class="option-btn" onclick="sel('cena',2,this)">Cena temprana</button>
+          <span class="option-hint">7:00 PM—9:00 PM</span>
+        </div>
+        <div class="option-wrap">
+          <button class="option-btn" onclick="sel('cena',1,this)">Cena tardía</button>
+          <span class="option-hint">9:00 PM—11:00 PM</span>
+        </div>
+        <div class="option-wrap">
+          <button class="option-btn" onclick="sel('cena',0,this)">Cena muy tarde</button>
+          <span class="option-hint">Después de las 11:00 PM</span>
+        </div>
       </div>
     </div>
 

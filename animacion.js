@@ -33,7 +33,6 @@ function irFase(faseSalida, faseEntrada) {
   ocultarFase(faseSalida, () => {
     mostrarFase(faseEntrada);
 
-    // Si entramos a fase-pasos, animamos los pasos uno a uno
     if (faseEntrada === 'fase-pasos') {
       animarPasos();
     }
@@ -68,7 +67,16 @@ function animarPasos() {
   const pasos = document.querySelectorAll('#fase-pasos .paso, #fase-pasos .paso-arrow');
   const btnSiguiente = document.getElementById('btn-siguiente-2');
 
-  // Mostrar cada elemento con delay progresivo
+  // Mostrar el botón siguiente al mismo tiempo que entra la fase
+  if (btnSiguiente) {
+    setTimeout(() => {
+      btnSiguiente.style.transition = 'opacity 0.5s ease';
+      btnSiguiente.style.opacity = '1';
+      btnSiguiente.style.pointerEvents = 'all';
+    }, 400);
+  }
+
+  // Mostrar cada paso con delay progresivo
   pasos.forEach((p, i) => {
     setTimeout(() => {
       p.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -76,16 +84,6 @@ function animarPasos() {
       p.style.transform = 'translateY(0)';
     }, i * 500 + 300);
   });
-
-  // Mostrar el botón siguiente después de todos los pasos
-  const totalDelay = pasos.length * 500 + 600;
-  setTimeout(() => {
-    if (btnSiguiente) {
-      btnSiguiente.style.transition = 'opacity 0.5s ease';
-      btnSiguiente.style.opacity = '1';
-      btnSiguiente.style.pointerEvents = 'all';
-    }
-  }, totalDelay);
 }
 
 
@@ -95,16 +93,15 @@ function animarPasos() {
 
 window.addEventListener('load', () => {
 
-  // Mostrar fase 1
   mostrarFase('fase-titulo');
 
   const btn1 = document.getElementById('btn-siguiente-1');
 
-  // Typewriter línea 1: "Tu biología habla."
+  // Typewriter línea 1
   setTimeout(() => {
     typewriter('typewriter-linea1', 'Tu biología habla.', 65, () => {
 
-      // Pequeña pausa y luego línea 2
+      // Typewriter línea 2
       setTimeout(() => {
         typewriter('typewriter-linea2', 'Este sistema la escucha.', 55, () => {
 
