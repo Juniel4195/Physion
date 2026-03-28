@@ -76,6 +76,7 @@ body {
   max-width: 620px;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .landing-title span {
@@ -112,7 +113,6 @@ body {
   color: #fff;
   cursor: pointer;
   transition: background 0.15s, transform 0.1s;
-  margin-bottom: 0.75rem;
 }
  
 .empezar-btn:hover { background: #6e1515; }
@@ -579,7 +579,7 @@ body {
 }
 
 .pasos-intro {
-  font-size: 11px;
+  font-size: 20px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #8a1c1c;
@@ -610,12 +610,38 @@ body {
   letter-spacing: 0.02em;
 }
 
-.siguiente-btn:hover {
-  background: #8a1c1c;
-  color: #fff;
+.siguiente-btn:hover { background: #8a1c1c; color: #fff; }
+.siguiente-btn:active { transform: scale(0.97); }
+
+/* ----------------------
+   BOTONES FASE FINAL
+---------------------- */
+
+.botones-final {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  align-self: center;
+  margin-right: 40px;
 }
 
-.siguiente-btn:active { transform: scale(0.97); }
+.atras-btn {
+  padding: 10px 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1.5px solid #c9a0a0;
+  border-radius: 8px;
+  background: transparent;
+  color: #8a1c1c;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.atras-btn:hover { background: #fff0f0; border-color: #8a1c1c; }
+.atras-btn:active { transform: scale(0.97); }
 
 .empezar-btn {
   animation: pulse 2s ease-in-out infinite;
