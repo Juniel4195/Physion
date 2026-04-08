@@ -573,6 +573,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 2rem 1.5rem;
+  padding-top: 7rem;
 }
 
 .oculto { opacity: 0; pointer-events: none; }
@@ -620,7 +621,7 @@ body {
   color: #8a1c1c;
   cursor: pointer;
   transition: all 0.15s;
-  margin-top: 2rem;
+  margin-top: 0;
   letter-spacing: 0.02em;
 }
 
@@ -670,4 +671,6 @@ body {
   .pasos { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem 1.25rem; }
   .paso-arrow { display: none; }
   .paso { max-width: 100%; }
+  .pasos-intro { margin-bottom: 1rem; }
+  
 }
