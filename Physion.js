@@ -150,22 +150,6 @@ const blueprintReglas = [
     recomendacion: "😴 Cenas bien, tienes buena energía — lo único que falla es la calidad del sueño. Cuando todo lo demás está bien y aún así el sueño no es reparador, casi siempre tiene que ver con el ambiente o los 60 minutos antes de acostarte. Prueba esto: cuarto fresco (entre 15 y 19°C), luz tenue en las 2 horas previas a dormir y una pequeña rutina de relajación antes de meterte a la cama — puede ser leer, respirar tranquilo, lo que te funcione.",
     alternativa: "No puedes cambiar el ambiente ni crear una rutina nueva: elige una sola cosa pequeña para hacer diferente esta noche antes de dormir — puede ser dejar el móvil en otra habitación, tomarte un vaso de agua tranquilo o simplemente sentarte 5 minutos sin hacer nada. La rutina no tiene que ser elaborada para funcionar."
   },
-
-  {
-    id: "solo-energia-moderada",
-    prioridad: 3,
-    condicion: (s, e, c) => s === 2 && e === 1 && c === 2,
-    recomendacion: "🔋 Dormiste bien y cenaste a buena hora, pero tu energía no está al 100%. Esto le pasa a tu cuerpo cuando el sueño fue suficiente en horas pero no completamente reparador. Prueba esto hoy: sal a recibir luz natural en los primeros 15-30 minutos después de despertar, aunque sean 10 minutos frente a una ventana. La luz del día le indica a tu cerebro que es hora de activarse y producir energía.",
-    alternativa: 'No puedes salir ni tienes luz natural disponible: muévete 5-10 minutos nada más despertar — estiramientos, caminar por la casa, lo que sea. El movimiento le manda a tu cuerpo la misma señal de "ya es de día, actívate", aunque de forma más leve que el sol.'
-  },
-
-  {
-  id: "solo-cena-tardia-moderada",
-  prioridad: 3,
-  condicion: (s, e, c) => s === 2 && e === 2 && c === 1,
-  recomendacion: "🍽️ Tu sueño y energía están en niveles óptimos, tu único punto débil es la hora de la cena. Aunque por ahora no está afectando tu descanso ni tu energía, Blueprint advierte que cenar tarde de forma repetida eleva tu frecuencia cardíaca durante la noche e interrumpe los ciclos de recuperación profunda a largo plazo. Acción concreta: adelanta la cena 30 minutos esta semana, es un cambio pequeño que tu cuerpo notará rápido.",
-  alternativa: "Si tu horario no te permite cenar más temprano: haz la cena lo más ligera posible, evita carbohidratos pesados y grasas. Una cena ligera tardía es mucho menos dañina para tu recuperación que una cena abundante tardía."
-  },
  
   // ============================
   // PRIORIDAD 4 — Estado óptimo
@@ -191,7 +175,7 @@ const blueprintReglas = [
  
 ];
  
- 
+//-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------
 // Funciones Modulares
 //-----------------------------
@@ -238,82 +222,7 @@ function obtenerexplicacion(){
    }
  
 }
- 
- 
-//-----------------------
-// Parte de Frontend
-//-----------------------
- 
-function sel(campo, val, btn) {
-  const idx = campo === 'sueno' ? 0 : campo === 'energia' ? 1 : 2;
-  datos[idx] = val;
-  document.getElementById('opts-' + campo).querySelectorAll('.option-btn').forEach(b => b.className = 'option-btn');
-  btn.className = 'option-btn selected-' + val;
-  document.getElementById('btn-analizar').disabled = datos.filter(d => d !== null).length < 3;
-}
- 
-// Landing — scroll hacia la app
-function empezar() {
-  document.getElementById('app-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
- 
- 
-//----------------------
-// Funcion Principal
-//-----------------------
- 
-function analizar(){
- 
-   const suma           = sumaDatos();
-   const estado         = obtenerEstadoscore(suma);
-   const { recomendacion, alternativa } = obtenerRecomendacion();
-   const explicacion    = obtenerexplicacion();
- 
-   // porcentaje para la barra
-   const pct = (suma / 5) * 100;
- 
-   //--------------------
-   // Parte de Frontend
-   //--------------------
-   document.getElementById('panel-content').innerHTML = `
-    <div class="estado-card">
-      <div class="score-circle" style="background:${estado.bg};color:${estado.color};">${suma}/5</div>
-      <div class="estado-info">
-        <div class="estado-label">Estado de recuperación</div>
-        <div class="estado-text" style="color:${estado.color};">${estado.texto}</div>
-        <div class="score-bar-wrap"><div class="score-bar" id="sbar" style="width:0%;background:${estado.barColor};"></div></div>
-      </div>
-    </div>
-    <div class="rec-card">
-      <div class="rec-label">Recomendación Blueprint</div>
-      <div class="rec-text">${recomendacion}</div>
-    </div>
-    <div class="rec-card">
-      <div class="rec-label">Si no puedes aplicarlo - alternativa</div>
-      <div class="rec-text">${alternativa}</div>
-    </div>
-    <div class="section-title" style="margin-bottom:0.75rem;">Análisis por variable</div>
-    <div class="exp-grid">
-      <div class="exp-item exp-sueno"><div class="exp-item-label">Sueño</div><div class="exp-item-text">${explicacion.sueno}</div></div>
-      <div class="exp-item exp-energia"><div class="exp-item-label">Energía</div><div class="exp-item-text">${explicacion.energia}</div></div>
-      <div class="exp-item exp-cena"><div class="exp-item-label">Cena</div><div class="exp-item-text">${explicacion.cena}</div></div>
-    </div>
-  `;
- 
-  document.getElementById('overlay').classList.add('open');
-  setTimeout(() => { const b = document.getElementById('sbar'); if (b) b.style.width = pct + '%'; }, 400);
- 
-}
- 
- 
-//------------------------------
-// Panel - Abrir y Cerrar
-//------------------------------
- 
-function cerrar() {
-  document.getElementById('overlay').classList.remove('open');
-}
- 
-function handleOverlayClick(e) {
-  if (e.target === document.getElementById('overlay')) cerrar();
-}
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
